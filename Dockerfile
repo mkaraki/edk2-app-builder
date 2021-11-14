@@ -13,6 +13,9 @@ RUN apt-get update && apt-get install -y \
 RUN git clone --depth=1 --recursive https://github.com/tianocore/edk2.git /edk2
  
 WORKDIR /edk2
- 
-RUN . ./edksetup.sh
+
 RUN make -C $PWD/BaseTools/Source/C
+
+COPY cmd.sh /usr/bin/cmd
+
+ENTRYPOINT ['cmd']
