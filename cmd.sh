@@ -1,5 +1,9 @@
 #!/bin/bash
 
-source edksetup.sh
+cmdargs=$@
 
-$@
+source /edk2/edksetup.sh &> /dev/null
+
+SourceEnv
+
+/bin/bash -c "$cmdargs"

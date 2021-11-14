@@ -7,15 +7,21 @@ RUN apt-get update && apt-get install -y \
   gcc \
   uuid-dev \
   git \
+  python \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
- 
+
 RUN git clone --depth=1 --recursive https://github.com/tianocore/edk2.git /edk2
- 
+
 WORKDIR /edk2
+
+SHELL ["/bin/bash", "-c"]
+
+RUN source ./edksetup.sh
+RUN alias build="/edk2/BaseTools/BinWrappers/PosixLike/build"
 
 RUN make -C $PWD/BaseTools/Source/C
 
-COPY cmd.sh /usr/bin/cmd
+COPY cmd.sh /cmd.sh
 
-ENTRYPOINT cmd
+ENTRYPOINT ["/bin/bash", "/cmd.sh"]
