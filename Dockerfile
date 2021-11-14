@@ -24,8 +24,4 @@ RUN make -C $PWD/BaseTools/Source/C
 
 COPY cmd.sh /cmd.sh
 
-<<<<<<< HEAD
 ENTRYPOINT ["/bin/bash", "/cmd.sh"]
-=======
-ENTRYPOINT /bin/bash /cmd.sh
->>>>>>> c7a4c29305b591291e5a7e896d4f6a37289aa914
