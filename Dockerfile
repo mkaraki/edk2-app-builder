@@ -18,4 +18,4 @@ RUN make -C $PWD/BaseTools/Source/C
 
 COPY cmd.sh /cmd.sh
 
-ENTRYPOINT /bin/bash cmd.sh
+ENTRYPOINT /bin/bash /cmd.sh
