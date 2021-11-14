@@ -16,6 +16,6 @@ WORKDIR /edk2
 
 RUN make -C $PWD/BaseTools/Source/C
 
-COPY cmd.sh /usr/bin/cmd
+COPY cmd.sh /cmd.sh
 
-ENTRYPOINT cmd
+ENTRYPOINT /bin/bash cmd.sh
